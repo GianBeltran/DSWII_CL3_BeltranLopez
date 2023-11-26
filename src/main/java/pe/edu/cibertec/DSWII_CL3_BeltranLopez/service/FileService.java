@@ -22,4 +22,8 @@ public class FileService {
             this.guardar(archivo);
         }
     }
+
+    public void guardarEnDirectorio(MultipartFile archivo, Path directorio) throws Exception {
+        Files.copy(archivo.getInputStream(), directorio.resolve(archivo.getOriginalFilename()));
+    }
 }
